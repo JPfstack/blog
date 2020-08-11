@@ -2,10 +2,7 @@
 
 <select (change)="onChangeCat($event)">
     <option value="todas">Seleccione categoria</option>
-    <option value="peces tropicales">Peces tropicales</option>
-    <option value="peces agua caliente">Peces agua caliente</option>
-    <option value="peces agua fria">Peces agua fría</option>
-    <option value="pez betta">Pez Betta</option>
+    <option *ngFor="let cat of arrPost" [value]="cat.categoria">{{cat.categoria}}</option>
 </select>
 <div>
     <div *ngFor="let art of arrPost">

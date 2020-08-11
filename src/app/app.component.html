@@ -1,10 +1,13 @@
-<nav>
-  <div><img src="" alt="">LOGO</div>
-  <a href="">BLOG</a>
-  <a href="">NUEVO POST</a>
-  <a href="">WEB</a>
-</nav>
+<div class="contenedor">
+  <nav>
+    <div><img src="" alt="">LOGO</div>
+    <a [routerLink]="['/blog']">BLOG</a>
+    <a [routerLink]="['/new']">NUEVO POST</a>
+    <a href="https://www.pecestropicales.club" target="_blank" alt="Esta es mi página WEB">WEB</a>
+  </nav>
 
-<div><img src="" alt="">AQUI VA LA IMAGEN DE Peces Tropicales.club</div>
-<app-formulario></app-formulario>
-<router-outlet> </router-outlet>
+  <div><img src="" alt="">AQUI VA LA IMAGEN DE Peces Tropicales.club</div>
+  <router-outlet> </router-outlet>
+
+
+</div>

@@ -18,7 +18,7 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.arrPost = this.blogService.getAllPost();
+    this.arrPost = this.blogService.getAllPost().reverse();
   }
 
   async onChangeCat($event) {
