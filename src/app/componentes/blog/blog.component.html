@@ -1,1 +1,24 @@
-<p>blog works!</p>
+<h2>ULTIMOS POST</h2>
+
+<select (change)="onChangeCat($event)">
+    <option value="todas">Seleccione categoria</option>
+    <option value="peces tropicales">Peces tropicales</option>
+    <option value="peces agua caliente">Peces agua caliente</option>
+    <option value="peces agua fria">Peces agua fría</option>
+    <option value="pez betta">Pez Betta</option>
+</select>
+<div>
+    <div *ngFor="let art of arrPost">
+        <h2>{{art.titulo}}</h2>
+        <p>{{art.texto}}</p>
+        <p>{{art.imagen}}</p>
+        <p>{{art.autor}}</p>
+        <p>{{art.fecha}}</p>
+        <p>{{art.categoria}}</p>
+    </div>
+</div>
+
+<aside>
+    <h3>TE PUEDE INTERESAR</h3>
+    <p>LOS POST MAS LEIDOS</p>
+</aside>

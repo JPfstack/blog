@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioBlogService } from '../../servicio-blog.service';
 
 @Component({
   selector: 'app-formulario',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private blogService: ServicioBlogService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(pNuevoPost) {
+    this.blogService.agregarPost(pNuevoPost)
   }
 
 }
