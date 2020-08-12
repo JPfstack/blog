@@ -1,4 +1,4 @@
-<form #nuevoPost="ngForm" (ngSubmit)="onSubmit(nuevoPost.value)">
+<form #nuevoPost="ngForm" (ngSubmit)="onSubmit(nuevoPost.value,'/blog')">
 
     <div>
         <label>Título</label>
@@ -28,4 +28,7 @@
     <input type="submit" value="Enviar Nuevo POST">
 </form>
 
+<div>
+    <h1 *ngIf="guardando">GUARDANDO</h1>
+</div>
 {{nuevoPost.value |json}}

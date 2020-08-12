@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioBlogService } from '../../servicio-blog.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -8,13 +9,23 @@ import { ServicioBlogService } from '../../servicio-blog.service';
 })
 export class FormularioComponent implements OnInit {
 
-  constructor(private blogService: ServicioBlogService) { }
+  guardando: boolean;
+
+  constructor(private blogService: ServicioBlogService, private router: Router) {
+    this.guardando = false;
+  }
 
   ngOnInit(): void {
   }
 
-  onSubmit(pNuevoPost) {
-    this.blogService.agregarPost(pNuevoPost)
+  onSubmit(pNuevoPost, pRuta) {
+    this.guardando = true;
+    this.blogService.agregarPost(pNuevoPost);
+    setTimeout(() => {
+      this.router.navigate([pRuta]);
+    }, 2000)
+
   }
+
 
 }
