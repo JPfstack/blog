@@ -11,9 +11,10 @@ export class BlogComponent implements OnInit {
 
   arrPost: Post[];
   arrPostXCat: Post[];
-
+  leerMas: boolean;
   constructor(private blogService: ServicioBlogService) {
     this.arrPostXCat = new Array();
+    this.leerMas = false;
   }
 
   ngOnInit(): void {
@@ -29,6 +30,13 @@ export class BlogComponent implements OnInit {
     }
 
   }
+
+  onLeerMas() {
+
+    this.leerMas = true
+
+  }
+
 
 
 }

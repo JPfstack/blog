@@ -1,21 +1,62 @@
-<h2>ULTIMOS POST</h2>
+<div class="contenedor">
 
-<select (change)="onChangeCat($event)">
-    <option value="todas">Seleccione categoria</option>
-    <option *ngFor="let cat of arrPost" [value]="cat.categoria">{{cat.categoria}}</option>
-</select>
-<div>
-    <div *ngFor="let art of arrPost">
-        <h2>{{art.titulo}}</h2>
-        <p>{{art.texto}}</p>
-        <p>{{art.imagen}}</p>
-        <p>{{art.autor}}</p>
-        <p>{{art.fecha}}</p>
-        <p>{{art.categoria}}</p>
+    <div>
+        <div id="cabecera">
+            <h2>ULTIMOS POST</h2>
+
+            <select (change)="onChangeCat($event)">
+                <option value="todas">Seleccione categoria</option>
+                <option *ngFor="let cat of arrPost" [value]="cat.categoria">{{cat.categoria}}</option>
+            </select>
+        </div>
+
+
+
+        <article id="post" *ngFor="let art of arrPost">
+            <h2>{{art.titulo}}</h2>
+            <p>{{art.texto}}</p>
+            <div (click)="onLeerMas()">Leer más >>
+                <p *ngIf="leerMas">hola</p>
+
+            </div>
+            <img [src]="art.imagen">
+
+            <div id="pie">
+                <p>Escrito por: {{art.autor}}</p>
+                <p>Fecha: {{art.fecha}}</p>
+                <p>Categoria: {{art.categoria}}</p>
+            </div>
+            <hr>
+        </article>
+
+
+
+
     </div>
-</div>
 
-<aside>
-    <h3>TE PUEDE INTERESAR</h3>
-    <p>LOS POST MAS LEIDOS</p>
-</aside>
+
+    <aside>
+        <h3>TE PUEDE INTERESAR</h3>
+        <ul>
+            <li>El Ph en acuario de agua dulce</li>
+            <li>El Barbo cereza</li>
+            <li>Biotopos del mundo</li>
+            <li>La iluminación en el acuario</li>
+        </ul>
+
+        <div>
+            <h3>GALERIA</h3>
+            <div>
+                <img src="https://www.pecestropicales.club/wp-content/uploads/2020/01/parametros-agua-acuario-1536x1152.jpg"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://www.pecestropicales.club/wp-content/uploads/2020/04/barbo-cereza-macho-1536x864.jpg"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://www.pecestropicales.club/wp-content/uploads/2020/04/ancistrus-1536x864.jpg" alt="">
+            </div>
+        </div>
+    </aside>
+</div>
