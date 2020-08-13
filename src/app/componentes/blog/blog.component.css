@@ -61,6 +61,7 @@
 #pie {
     display: flex;
     justify-content: space-between;
+    width: 100%; 
     margin-top: 5px;
 }
 
@@ -86,4 +87,9 @@ aside div img {
     width: 200px;
     height: auto;
     margin: 20px auto;
+}
+
+span {
+    font-family: var(--fuentesecundaria);
+    font-weight: bold;
 }

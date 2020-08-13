@@ -1,34 +1,39 @@
 <form #nuevoPost="ngForm" (ngSubmit)="onSubmit(nuevoPost.value,'/blog')">
-
-    <div>
+    <h2>RELLENA LOS CAMPOS PARA AGREGAR UN NUEVO POST</h2>
+    <div id="titulo">
         <label>Título</label>
-        <input type="text" name="titulo" ngModel>
+        <input type="text" name="titulo" placeholder="Escribe aquí el título de tu post" ngModel>
     </div>
+    <div id="datosFormulario">
+        <div>
+            <label>Autor</label>
+            <input type="text" name="autor" placeholder="Este eres tú" ngModel>
+        </div>
+        <div>
+            <label>Fecha</label>
+            <input type="text" name="fecha" placeholder="El día de hoy" ngModel>
+        </div>
+        <div>
+            <label>Categoría</label>
+            <input type="text" name="categoria" placeholder="¿De qué quieres hablar?" ngModel>
+        </div>
+    </div>
+
     <div>
         <label>Post</label>
-        <input type="text" name="texto" ngModel>
+        <textarea name="texto" placeholder="Escribe aquí tu post" ngModel></textarea>
     </div>
-    <div>
-        <label>Autor</label>
-        <input type="text" name="autor" ngModel>
-    </div>
+
     <div>
         <label>Imagen</label>
-        <input type="text" name="imagen" ngModel>
-    </div>
-    <div>
-        <label>Fecha</label>
-        <input type="text" name="fecha" ngModel>
-    </div>
-    <div>
-        <label>Categoria</label>
-        <input type="text" name="categoria" ngModel>
+        <input type="text" name="imagen" placeholder="Si además quieres incluir una imagen este es el lugar" ngModel>
     </div>
 
-    <input type="submit" value="Enviar Nuevo POST">
+
+    <input id="boton" type="submit" value="Enviar Nuevo POST">
 </form>
 
-<div>
-    <h1 *ngIf="guardando">GUARDANDO</h1>
+<div *ngIf="guardando" id="guardado">
+    <img src="../../../assets/pecera6.gif">
+    <h2 class="animate__animated animate__infinite animate__tada">GUARDANDO</h2>
 </div>
-{{nuevoPost.value |json}}

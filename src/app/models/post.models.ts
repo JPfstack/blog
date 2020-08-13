@@ -6,8 +6,9 @@ export class Post {
     autor: string;
     fecha: string;
     categoria: string;
+    url: string;
 
-    constructor(pTitulo: string, pTexto: string, pImagen: string, pAutor: string, pFecha: string, pCategoria: string) {
+    constructor(pTitulo: string, pTexto: string, pImagen: string, pAutor: string, pFecha: string, pCategoria: string, pUrl: string) {
 
         this.titulo = pTitulo;
         this.texto = pTexto;
@@ -15,5 +16,6 @@ export class Post {
         this.autor = pAutor;
         this.fecha = pFecha;
         this.categoria = pCategoria;
+        this.url = pUrl;
     }
 }

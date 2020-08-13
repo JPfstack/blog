@@ -23,7 +23,7 @@ export class FormularioComponent implements OnInit {
     this.blogService.agregarPost(pNuevoPost);
     setTimeout(() => {
       this.router.navigate([pRuta]);
-    }, 2000)
+    }, 4000)
 
   }
 

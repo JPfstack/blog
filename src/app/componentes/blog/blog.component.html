@@ -15,8 +15,10 @@
         <article id="post" *ngFor="let art of arrPost">
             <h2>{{art.titulo}}</h2>
             <p>{{art.texto}}</p>
-            <div (click)="onLeerMas()">Leer más >>
-                <p *ngIf="leerMas">hola</p>
+            <div> <span (click)="onLeerMas()" *ngIf="leerMas">Leer más >></span> <span (click)="onLeerMas()"
+                    *ngIf="leerMenos">Leer menos >></span>
+                <p *ngIf="leerMenos">Si quieres saber más sobre este tema puedes consultar en: <a [href]="art.url"
+                        target="_blank">PecesTropicales.club</a></p>
 
             </div>
             <img [src]="art.imagen">
@@ -56,6 +58,15 @@
             </div>
             <div>
                 <img src="https://www.pecestropicales.club/wp-content/uploads/2020/04/ancistrus-1536x864.jpg" alt="">
+            </div>
+
+            <div>
+                <img src="https://www.pecestropicales.club/wp-content/uploads/2020/01/urna-acuario-1536x1152.jpg"
+                    alt="">
+            </div>
+            <div>
+                <img src="https://www.pecestropicales.club/wp-content/uploads/2020/01/biotopo-amazonico-1536x1152.jpg"
+                    alt="">
             </div>
         </div>
     </aside>

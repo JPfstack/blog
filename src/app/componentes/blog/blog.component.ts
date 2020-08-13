@@ -12,14 +12,18 @@ export class BlogComponent implements OnInit {
   arrPost: Post[];
   arrPostXCat: Post[];
   leerMas: boolean;
+  leerMenos: boolean;
+
+
   constructor(private blogService: ServicioBlogService) {
     this.arrPostXCat = new Array();
-    this.leerMas = false;
+    this.leerMas = true;
+    this.leerMenos = false;
   }
 
   ngOnInit(): void {
 
-    this.arrPost = this.blogService.getAllPost().reverse();
+    this.arrPost = this.blogService.getAllPost();
   }
 
   async onChangeCat($event) {
@@ -32,9 +36,13 @@ export class BlogComponent implements OnInit {
   }
 
   onLeerMas() {
-
-    this.leerMas = true
-
+    if (this.leerMas) {
+      this.leerMas = false;
+      this.leerMenos = true;
+    } else {
+      this.leerMas = true;
+      this.leerMenos = false;
+    }
   }
 
 
