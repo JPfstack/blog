@@ -1,32 +1,45 @@
-<form #nuevoPost="ngForm" (ngSubmit)="onSubmit(nuevoPost.value,'/blog')">
+<form novalidate [formGroup]="nuevoPost" (ngSubmit)="onSubmit(nuevoPost.value,'/blog')">
     <h2>RELLENA LOS CAMPOS PARA AGREGAR UN NUEVO POST</h2>
     <div id="titulo">
         <label>Título</label>
-        <input type="text" name="titulo" placeholder="Escribe aquí el título de tu post" ngModel>
+        <input type="text" formControlName="titulo" placeholder="Escribe aquí el título de tu post">
+        <p class="error"
+            *ngIf="nuevoPost.controls.titulo.errors?.required && nuevoPost.controls.titulo.touched || mensajeEnvio">El
+            campo es obligatorio</p>
     </div>
     <div id="datosFormulario">
         <div>
             <label>Autor</label>
-            <input type="text" name="autor" placeholder="Este eres tú" ngModel>
+            <input type="text" formControlName="autor" placeholder="Este eres tú">
+            <p class="error"
+                *ngIf="nuevoPost.controls.autor.errors?.required && nuevoPost.controls.autor.touched || mensajeEnvio">El
+                campo es obligatorio</p>
         </div>
         <div>
             <label>Fecha</label>
-            <input type="text" name="fecha" placeholder="El día de hoy" ngModel>
+            <input type="text" formControlName="fecha" placeholder="El día de hoy">
         </div>
         <div>
             <label>Categoría</label>
-            <input type="text" name="categoria" placeholder="¿De qué quieres hablar?" ngModel>
+            <input type="text" formControlName="categoria" placeholder="¿De qué quieres hablar?">
+            <p class="error"
+                *ngIf="nuevoPost.controls.categoria.errors?.required && nuevoPost.controls.categoria.touched || mensajeEnvio">
+                El
+                campo es obligatorio</p>
         </div>
     </div>
 
     <div>
         <label>Post</label>
-        <textarea name="texto" placeholder="Escribe aquí tu post" ngModel></textarea>
+        <textarea formControlName="texto" placeholder="Escribe aquí tu post"></textarea>
+        <p class="error"
+            *ngIf="nuevoPost.controls.texto.errors?.required && nuevoPost.controls.texto.touched || mensajeEnvio">El
+            campo es obligatorio</p>
     </div>
 
     <div>
         <label>Imagen</label>
-        <input type="text" name="imagen" placeholder="Si además quieres incluir una imagen este es el lugar" ngModel>
+        <input type="text" formControlName="imagen" placeholder="Si además quieres incluir una imagen este es el lugar">
     </div>
 
 
@@ -36,4 +49,8 @@
 <div *ngIf="guardando" id="guardado">
     <img src="../../../assets/pecera6.gif">
     <h2 class="animate__animated animate__infinite animate__tada">GUARDANDO</h2>
+</div>
+
+<div *ngIf="mensajeEnvio">
+    <h2>LOS CAMPOS INDICADOS SON OBLIGATORIOS</h2>
 </div>

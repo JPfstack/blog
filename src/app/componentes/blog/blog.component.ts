@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioBlogService } from '../../servicio-blog.service';
 import { Post } from '../../models/post.models'
+import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-blog',
@@ -15,10 +16,14 @@ export class BlogComponent implements OnInit {
   leerMenos: boolean;
 
 
+
+
   constructor(private blogService: ServicioBlogService) {
     this.arrPostXCat = new Array();
     this.leerMas = true;
     this.leerMenos = false;
+
+
   }
 
   ngOnInit(): void {
@@ -48,4 +53,7 @@ export class BlogComponent implements OnInit {
 
 
 }
+
+
+
 

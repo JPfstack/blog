@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioBlogService } from '../../servicio-blog.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -9,21 +10,45 @@ import { Router } from '@angular/router';
 })
 export class FormularioComponent implements OnInit {
 
+  nuevoPost: FormGroup;
   guardando: boolean;
+  mensajeEnvio: boolean;
+
 
   constructor(private blogService: ServicioBlogService, private router: Router) {
     this.guardando = false;
+    this.mensajeEnvio = false;
+
+
+    this.nuevoPost = new FormGroup({
+      titulo: new FormControl("", [Validators.required]),
+      autor: new FormControl("", [Validators.required]),
+      fecha: new FormControl("", []),
+      categoria: new FormControl("", [Validators.required]),
+      texto: new FormControl("", [Validators.required]),
+      imagen: new FormControl("", [])
+    })
   }
 
   ngOnInit(): void {
   }
 
   onSubmit(pNuevoPost, pRuta) {
-    this.guardando = true;
-    this.blogService.agregarPost(pNuevoPost);
-    setTimeout(() => {
-      this.router.navigate([pRuta]);
-    }, 4000)
+
+    let envioPost = this.nuevoPost.invalid;
+
+    if (envioPost) {
+      this.mensajeEnvio = true;
+      console.log(this.mensajeEnvio);
+    } else {
+      this.guardando = true;
+      this.blogService.agregarPost(pNuevoPost);
+      setTimeout(() => {
+        this.router.navigate([pRuta]);
+      }, 5000)
+
+    }
+
 
   }
 
