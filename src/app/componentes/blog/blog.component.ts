@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioBlogService } from '../../servicio-blog.service';
 import { Post } from '../../models/post.models'
-import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-blog',
@@ -11,24 +10,23 @@ import { getLocaleDateFormat } from '@angular/common';
 export class BlogComponent implements OnInit {
 
   arrPost: Post[];
-  arrPostXCat: Post[];
   leerMas: boolean;
   leerMenos: boolean;
+  postLocalStorage: Post;
 
 
 
 
   constructor(private blogService: ServicioBlogService) {
-    this.arrPostXCat = new Array();
+
     this.leerMas = true;
     this.leerMenos = false;
-
 
   }
 
   ngOnInit(): void {
-
     this.arrPost = this.blogService.getAllPost();
+    console.log(this.postLocalStorage);
   }
 
   async onChangeCat($event) {

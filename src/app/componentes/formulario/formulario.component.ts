@@ -16,6 +16,8 @@ export class FormularioComponent implements OnInit {
 
 
   constructor(private blogService: ServicioBlogService, private router: Router) {
+
+
     this.guardando = false;
     this.mensajeEnvio = false;
 
@@ -34,13 +36,13 @@ export class FormularioComponent implements OnInit {
   }
 
   onSubmit(pNuevoPost, pRuta) {
-
+    let postLocalStorage = pNuevoPost;
     let envioPost = this.nuevoPost.invalid;
 
     if (envioPost) {
       this.mensajeEnvio = true;
-      console.log(this.mensajeEnvio);
     } else {
+      localStorage.setItem('postLocalStorage', JSON.stringify(postLocalStorage));
       this.guardando = true;
       this.blogService.agregarPost(pNuevoPost);
       setTimeout(() => {
@@ -51,6 +53,9 @@ export class FormularioComponent implements OnInit {
 
 
   }
+
+
+
 
 
 }
